@@ -18,6 +18,7 @@ private:
 public:
     Digit();
     Digit(string number, int base);
+    void padWithZeroes(int count);
     void display();
 
     // ! getters & setters

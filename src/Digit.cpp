@@ -50,3 +50,14 @@ void Digit::display()
     }
     cout << endl;
 }
+
+void Digit::padWithZeroes(int count)
+{
+    int decimalPoint = this->getDecimalPoint();
+    for (int i = 0; i < count; i++)
+    {
+        this->push_back(0);
+        decimalPoint++;
+    }
+    this->setDecimalPoint(decimalPoint);
+}
