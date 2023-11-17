@@ -13,11 +13,11 @@ operatorsFiles=$(find $operatorsPath -name "*.cpp")
 guiFiles=$(find $guiPath -name "*.cpp")
 
 # ! Compile the C++ files and generate one single executable
-g++ $digitFiles $arithmeticFiles $operatorsFiles $guiFiles main.cpp -o main
+g++ $digitFiles $arithmeticFiles $operatorsFiles $guiFiles main.cpp -o main.out
 
 # ! Check if the compilation was successful
 if [ $? -eq 0 ]; then
-    echo "Compilation successful. Executable created: main"
+    echo "Compilation successful. Executable created: main.out"
 else
     echo "Compilation failed."
 fi
