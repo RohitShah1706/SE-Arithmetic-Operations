@@ -2,13 +2,11 @@
 #define ARITHMETIC_H
 
 #include <iostream>
-#include "../Digit.h"
+#include "../Digit/Digit.h"
 
 class Arithmetic
 {
 public:
-    Arithmetic() {};
-    virtual ~Arithmetic() {};
     virtual Digit apply(Digit &d1, Digit &d2) = 0;
 };
 

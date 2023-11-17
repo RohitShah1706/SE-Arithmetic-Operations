@@ -4,11 +4,9 @@
 #include <iostream>
 #include "../Arithmetic.h"
 
-class AddArithmetic: public Arithmetic
+class AddArithmetic : public Arithmetic
 {
 public:
-    AddArithmetic();
-    virtual ~AddArithmetic();
     Digit apply(Digit &a, Digit &b);
 };
 

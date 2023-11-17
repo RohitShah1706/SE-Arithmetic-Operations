@@ -1,4 +1,4 @@
-#include "src/Digit.h"
+#include "src/Digit/Digit.h"
 #include "src/Arithmetic/Add/AddArithmetic.h"
 #include "src/Operators/Add/AddOperator.h"
 

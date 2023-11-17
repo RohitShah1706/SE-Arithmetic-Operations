@@ -11,7 +11,6 @@ public:
     Operator(Arithmetic *arithmetic) {
         this->arithmetic = arithmetic;
     }
-    virtual ~Operator() {};
 
     virtual Digit operate(Digit &d1, Digit &d2) = 0;
 };

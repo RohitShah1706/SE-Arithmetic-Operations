@@ -1,9 +1,19 @@
 #!/bin/bash
 
-# Compile the C++ files
-g++ src/Digit.cpp src/Arithmetic/Add/AddArithmetic.cpp src/Operators/Add/AddOperator.cpp main.cpp -o main
+# ! Define the paths
+digitPath="src/Digit"
+arithmeticPath="src/Arithmetic"
+operatorsPath="src/Operators"
 
-# Check if the compilation was successful
+# ! Get the .cpp files in the directories
+digitFiles=$(find $digitPath -name "*.cpp")
+arithmeticFiles=$(find $arithmeticPath -name "*.cpp")
+operatorsFiles=$(find $operatorsPath -name "*.cpp")
+
+# ! Compile the C++ files and generate one single executable
+g++ $digitFiles $arithmeticFiles $operatorsFiles main.cpp -o main
+
+# ! Check if the compilation was successful
 if [ $? -eq 0 ]; then
     echo "Compilation successful. Executable created: main"
 else
