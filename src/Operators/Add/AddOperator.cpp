@@ -1,7 +1,6 @@
 #include "AddOperator.h"
 
 AddOperator::AddOperator(Arithmetic *arithmetic) : Operator(arithmetic) {}
-AddOperator::~AddOperator() {}
 
 Digit AddOperator::operate(Digit &d1, Digit &d2)
 {

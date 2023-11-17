@@ -1,8 +1,5 @@
 #include "AddArithmetic.h"
 
-AddArithmetic::AddArithmetic(): Arithmetic() {}
-AddArithmetic::~AddArithmetic() {}
-
 Digit AddArithmetic::apply(Digit &d1, Digit &d2)
 {
     Digit c;

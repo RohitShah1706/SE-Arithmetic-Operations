@@ -7,7 +7,6 @@ class AddOperator : public Operator
 {
 public:
     AddOperator(Arithmetic *arithmetic);
-    virtual ~AddOperator();
 
     Digit operate(Digit &d1, Digit &d2);
 };
