@@ -6,6 +6,7 @@
 class AddOperator : public Operator
 {
 public:
+    AddOperator() : Operator() {}
     AddOperator(Arithmetic *arithmetic);
 
     Digit operate(Digit &d1, Digit &d2);

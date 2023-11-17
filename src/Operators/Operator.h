@@ -8,7 +8,13 @@ protected:
    Arithmetic *arithmetic;
 
 public:
+    Operator() {}
+
     Operator(Arithmetic *arithmetic) {
+        this->arithmetic = arithmetic;
+    }
+
+    void setArithmetic(Arithmetic *arithmetic) {
         this->arithmetic = arithmetic;
     }
 
