@@ -1,3 +1,6 @@
+#ifndef GUI_H
+#define GUI_H
+
 #include <iostream>
 #include <string>
 
@@ -27,3 +30,5 @@ public:
 
     static void run();
 };
+
+#endif
