@@ -102,7 +102,7 @@ public:
 private:
     struct TestCase
     {
-        string name;P
+        string name;
         string op;
         Digit d1;
         Digit d2;
