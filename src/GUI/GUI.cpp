@@ -3,6 +3,7 @@
 GUI::GUI()
 {
     addOperator.setArithmetic(&addArithmetic);
+    subOperator.setArithmetic(&subArithmetic);
 }
 
 GUI *GUI::instance = NULL;
@@ -23,6 +24,10 @@ Operator *GUI::getOperator(string op)
     {
         return &addOperator;
     }
+    else if (strcmp(op.c_str(), "-") == 0)
+    {
+        return &subOperator;
+    }
     return NULL;
 }
 
@@ -40,7 +45,7 @@ void GUI::run()
         gui->digit1 = Digit(s1, 10);
         gui->digit2 = Digit(s2, 10);
 
-        Operator *myOperator = gui->getOperator("+");
+        Operator *myOperator = gui->getOperator("-");
         Digit result = myOperator->operate(gui->digit1, gui->digit2);
         cout << "Result: ";
         result.display();
