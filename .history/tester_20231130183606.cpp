@@ -127,9 +127,8 @@ int main()
 
     // ! add tests
     tester.addTest("Test 1", "+", Digit("12", 10), Digit("10", 10), Digit("22", 10));
-    tester.addTest("Test 2", "+", Digit("12.22", 10), Digit("10", 10), Digit("22", 10));
-    tester.addTest("Test 3", "+", Digit("123.456", 10), Digit("21.042353", 10), Digit("144.498353", 10));
-    tester.addTest("Test 4", "+", Digit("1.232", 10), Digit("12.22", 10), Digit("13.452", 10));
+    tester.addTest("Test 2", "+", Digit("123.456", 10), Digit("21.042353", 10), Digit("144.498353", 10));
+    tester.addTest("Test 3", "+", Digit("12", 10), Digit("0.02", 10), Digit("12.002", 10));
 
     // ! sub tests
     tester.addTest("Test 4", "-", Digit("12", 10), Digit("10", 10), Digit("2", 10));

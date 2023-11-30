@@ -4,6 +4,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #include <algorithm>
+#include <string>
 using namespace std;
 
 #define PRECISION 100
@@ -19,7 +20,7 @@ public:
     Digit();
     Digit(string number, int base);
     void padWithZeroes(int count);
-    void display();
+    string display();
 
     // ! getters & setters
     int getBase() { return this->base; }
@@ -31,7 +32,6 @@ public:
 
     // ! operator overloading
     bool operator==(const Digit& other) const;
-
 };
 
 #endif

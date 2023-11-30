@@ -33,21 +33,29 @@ Operator *GUI::getOperator(string op)
 
 void GUI::run()
 {
-    string s1, s2;
+    string s1, s2, op;
     while (1)
     {
-        cout << "Enter number 1: ";
+        // cout << "Enter number 1: ";
         cin >> s1;
-        cout << "Enter number 2: ";
+        if (strcmp(s1.c_str(), "exit") == 0)
+        {
+            break;
+        }
+        // cout << "Enter number 2: ";
         cin >> s2;
+        // cout << "Enter operator: ";
+        cin >> op;
 
         GUI *gui = GUI::getInstance();
         gui->digit1 = Digit(s1, 10);
         gui->digit2 = Digit(s2, 10);
 
-        Operator *myOperator = gui->getOperator("-");
+        Operator *myOperator = gui->getOperator(op);
         Digit result = myOperator->operate(gui->digit1, gui->digit2);
-        cout << "Result: ";
-        result.display();
+        // cout << "Result: " << result.display();
+        cout << result.display() << endl;
     }
+
+    cout.flush();
 }
