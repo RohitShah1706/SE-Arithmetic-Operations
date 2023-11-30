@@ -34,7 +34,6 @@ public:
 
     // ! operator overloading
     bool operator==(const Digit& other) const;
-    bool operator<(const Digit& other) const;
 };
 
 #endif

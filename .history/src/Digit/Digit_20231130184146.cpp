@@ -79,21 +79,3 @@ bool Digit::operator==(const Digit& other) const {
     return true;
 }
 
-bool Digit::operator<(const Digit &other) const
-{
-    if (base != other.base)
-        return base < other.base;
-
-    if (decimalPoint != other.decimalPoint)
-        return decimalPoint < other.decimalPoint;
-
-    size_t minSize = min(size(), other.size());
-
-    for (size_t i = 0; i < minSize; ++i)
-    {
-        if ((*this)[i] != other[i])
-            return (*this)[i] < other[i];
-    }
-
-    return size() < other.size();
-}

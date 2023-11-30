@@ -67,7 +67,7 @@ void Digit::padWithZeroes(int count)
     this->setDecimalPoint(decimalPoint);
 }
 
-// ! operator overload methods
+
 
 bool Digit::operator==(const Digit& other) const {
     if (base != other.base) return false;

@@ -27,14 +27,13 @@ public:
     int getBase() { return this->base; }
     bool getIsFloat() { return this->isFloat; }
     int getDecimalPoint() { return this->decimalPoint; }
-    void setNeg() {this->isNeg=true;}
+    void setNeg() {}
     void setBase(int base) { this->base = base; }
     void setIsFloat(bool isFloat) { this->isFloat = isFloat; }
     void setDecimalPoint(int decimalPoint) { this->decimalPoint = decimalPoint; }
 
     // ! operator overloading
     bool operator==(const Digit& other) const;
-    bool operator<(const Digit& other) const;
 };
 
 #endif

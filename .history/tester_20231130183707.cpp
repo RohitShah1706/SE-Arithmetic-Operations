@@ -133,8 +133,8 @@ int main()
 
     // ! sub tests
     tester.addTest("Test 5", "-", Digit("12", 10), Digit("10", 10), Digit("2", 10));
-    tester.addTest("Test 6", "-", Digit("123.456", 10), Digit("21.042353", 10), Digit("102.413647", 10));
-    tester.addTest("Test 7", "-", Digit("12", 10), Digit("0.02", 10), Digit("11.98", 10));
+    tester.addTest("Test 5", "-", Digit("123.456", 10), Digit("21.042353", 10), Digit("102.413647", 10));
+    tester.addTest("Test 6", "-", Digit("12", 10), Digit("0.02", 10), Digit("11.98", 10));
 
     // ! run tests
     // cout << "Running tests without GUI" << endl;
