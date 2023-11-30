@@ -10,6 +10,26 @@ Digit SubArithmetic::apply(Digit &d1, Digit &d2)
     int maxLen = max(l1, l2);
     if(l1<l2)
     {
+        result.setNeg();
+    }
+    else if(l1==l2)
+    {
+        for(int i=0;i<l1;i++)
+        {
+            if(d1[i]>d2[i])
+                break;
+            else if(d1[i]<d2[i])
+            {
+                result.setNeg();
+                break;
+            }
+            else
+                continue;
+        }
+    }
+    
+    if(result.getNeg())
+    {
         for (int i = 0; i < maxLen; ++i)
         {
             int digit1 = (i < l2) ? d2[l2 - 1 - i] : 0;

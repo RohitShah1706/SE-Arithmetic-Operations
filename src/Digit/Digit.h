@@ -27,6 +27,7 @@ public:
     int getBase() { return this->base; }
     bool getIsFloat() { return this->isFloat; }
     int getDecimalPoint() { return this->decimalPoint; }
+    bool getNeg() {return this->isNeg;}
     void setNeg() {this->isNeg=true;}
     void setBase(int base) { this->base = base; }
     void setIsFloat(bool isFloat) { this->isFloat = isFloat; }

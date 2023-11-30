@@ -51,8 +51,9 @@ string Digit::display()
         s += to_string(x);
         i++;
     }
-    if(isNeg)
-        s+="-"+s;
+    
+    if(this->isNeg)
+        s="-"+s;
     return s;
 }
 
