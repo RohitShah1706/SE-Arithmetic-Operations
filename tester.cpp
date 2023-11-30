@@ -161,6 +161,9 @@ int main()
     tester.addTest("Test 18","*",Digit("2.3",10), Digit("300",10), Digit("690.0",10));
     tester.addTest("Test 18","*",Digit("2.3",10), Digit("30",10), Digit("69.0",10));
 
+    // ! mult tests
+    
+
     // ! run tests
     // cout << "Running tests without GUI" << endl;
     // tester.runTestsWithoutGUI();

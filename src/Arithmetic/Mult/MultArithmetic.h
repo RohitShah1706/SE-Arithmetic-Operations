@@ -11,7 +11,7 @@ class MultArithmetic : public Arithmetic {
     protected:
         AddArithmetic addArith;
         
-         SubArithmetic subArith;
+        SubArithmetic subArith;
     public:
         Digit apply(Digit &a, Digit &b);
 };

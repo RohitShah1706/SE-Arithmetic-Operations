@@ -29,7 +29,6 @@ private:
     MultOperator multOperator;
     MultArithmetic multArithmetic;
 
-
     // ! Private constructor for GUI
     GUI();
 
