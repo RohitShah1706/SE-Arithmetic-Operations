@@ -34,6 +34,7 @@ Operator *GUI::getOperator(string op)
 void GUI::run()
 {
     string s1, s2, op;
+    int base;
     while (1)
     {
         // cout << "Enter number 1: ";
@@ -46,14 +47,14 @@ void GUI::run()
         cin >> s2;
         // cout << "Enter operator: ";
         cin >> op;
+        cin >> base;
 
         GUI *gui = GUI::getInstance();
-        gui->digit1 = Digit(s1, 10);
-        gui->digit2 = Digit(s2, 10);
+        gui->digit1 = Digit(s1, base);
+        gui->digit2 = Digit(s2, base);
 
         Operator *myOperator = gui->getOperator(op);
         Digit result = myOperator->operate(gui->digit1, gui->digit2);
-        // cout << "Result: " << result.display();
         cout << result.display() << endl;
     }
 
