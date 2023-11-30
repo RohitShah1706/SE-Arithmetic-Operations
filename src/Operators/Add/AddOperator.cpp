@@ -1,5 +1,10 @@
 #include "AddOperator.h"
 
+
+
+// AddOperator::AddOperator(Arithmetic *arithmetic) : Operator(arithmetic) {}
+
+
 Digit AddOperator::operate(Digit &d1, Digit &d2)
 {
     int maxDecimalPoint = max(d1.getDecimalPoint(), d2.getDecimalPoint());

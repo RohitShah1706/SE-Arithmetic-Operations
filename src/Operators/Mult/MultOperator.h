@@ -7,7 +7,11 @@ class MultOperator : public Operator {
 
     public:
         MultOperator() : Operator() {}
+
         // MultOperator(Arithmetic * arithmetic);
+
+
+
 
         Digit operate(Digit &d1, Digit &d2);
 

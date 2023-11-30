@@ -113,10 +113,7 @@ Digit Digit::subDigit(int start, int length) {
 
         i++;
     }
-
-    return d;
-
-}
+    return d;}
 
 void Digit::padZeroesFront(int n) {
     Digit d = Digit("",this->getBase());

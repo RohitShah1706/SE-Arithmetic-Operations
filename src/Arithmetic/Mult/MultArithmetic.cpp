@@ -18,10 +18,8 @@ Digit MultArithmetic::apply(Digit &a, Digit &b) {
     }
     else len = len1;
     // base cases
-    if (len == 0) {
-        res.push_back(0) ;
-        return res;
-    }
+    if (len == 0) { res.push_back(0) ; return res; }
+
     if (len == 1) {
         int product = a[0]*b[0];
         res.push_back(product/base);

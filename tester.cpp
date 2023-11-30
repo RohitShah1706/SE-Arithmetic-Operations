@@ -10,6 +10,7 @@ public:
     {
         tests.push_back({name, op, d1, d2, expected});
     }
+    
 
     void runTestsWithoutGUI()
     {
@@ -162,8 +163,10 @@ int main()
     tester.addTest("Test 18","*",Digit("2.3",10), Digit("30",10), Digit("69.0",10));
 
     // ! mult tests
+    tester.addTest("Test 8","*",Digit("0.3",10),Digit("230",10),Digit("69.0",10));
+    tester.addTest("Test 7","*",Digit("23",10),Digit("3",10),Digit("69",10));
+    tester.addTest("Test 9","*",Digit("0.23",10),Digit("0.3",10),Digit("0.069",10));
     
-
     // ! run tests
     // cout << "Running tests without GUI" << endl;
     // tester.runTestsWithoutGUI();
