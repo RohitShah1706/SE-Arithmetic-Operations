@@ -155,6 +155,12 @@ int main()
     tester.addTest("Test 16", "-", Digit("101.101", 2), Digit("1101.1101", 2), Digit("-1000.0001", 2));
     tester.addTest("Test 17", "-", Digit("1101.1101", 2), Digit("101.101", 2), Digit("1000.0001", 2));
 
+    // ! mult test()
+    tester.addTest("Test 18","*",Digit("23",10), Digit("3",10), Digit("69",10));
+    tester.addTest("Test 18","*",Digit("2.3",10), Digit("3",10), Digit("6.9",10));
+    tester.addTest("Test 18","*",Digit("2.3",10), Digit("300",10), Digit("690.0",10));
+    tester.addTest("Test 18","*",Digit("2.3",10), Digit("30",10), Digit("69.0",10));
+
     // ! run tests
     // cout << "Running tests without GUI" << endl;
     // tester.runTestsWithoutGUI();

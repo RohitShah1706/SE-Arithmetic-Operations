@@ -103,3 +103,28 @@ bool Digit::operator<(const Digit &other) const
 
     return size() < other.size();
 }
+
+Digit Digit::subDigit(int start, int length) {
+    Digit d = Digit("",this->base);
+    d.setDecimalPoint(this->getDecimalPoint());
+    int i =0;
+    for(auto x: *this) {
+        if(i>=start && i < start+length) d.push_back(x);
+
+        i++;
+    }
+
+    return d;
+
+}
+
+void Digit::padZeroesFront(int n) {
+    Digit d = Digit("",this->getBase());
+    for (int i=0;i<n;i++) {
+        d.push_back(0);
+    }
+    for(auto x: *this) {
+        d.push_back(x);
+    }
+    *this = d;
+}
