@@ -61,3 +61,13 @@ void Digit::padWithZeroes(int count)
     }
     this->setDecimalPoint(decimalPoint);
 }
+
+bool Digit::operator==(const Digit& other) const {
+    if (base != other.base) return false;
+    if (decimalPoint != other.decimalPoint) return false;
+    if (size() != other.size()) return false;
+    for (size_t i = 0; i < size(); i++) {
+        if ((*this)[i] != other[i]) return false;
+    }
+    return true;
+}

@@ -29,6 +29,9 @@ public:
     void setIsFloat(bool isFloat) { this->isFloat = isFloat; }
     void setDecimalPoint(int decimalPoint) { this->decimalPoint = decimalPoint; }
 
+    // ! operator overloading
+    bool operator==(const Digit& other) const;
+
 };
 
 #endif
