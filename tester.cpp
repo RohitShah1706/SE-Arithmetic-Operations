@@ -115,13 +115,15 @@ private:
 
     vector<TestCase> tests;
 
-    bool compareDigits(const Digit &d1, const Digit &d2)
+    bool compareDigits(Digit &d1, Digit &d2)
     {
-        if (d1 == d2)
-        {
-            return true;
+        if (d1.getBase() != d2.getBase()) return false;
+        if (d1.getDecimalPoint() != d2.getDecimalPoint()) return false;
+        if (d1.size() != d2.size()) return false;
+        for (size_t i = 0; i < d2.size(); i++) {
+            if (d1[i] != d2[i]) return false;
         }
-        return false;
+        return true;
     }
 };
 
@@ -162,5 +164,6 @@ int main()
 
     cout << "Running tests with GUI" << endl;
     tester.runTestsWithGUI();
+    cout << endl;
     return 0;
 }
