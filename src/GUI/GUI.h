@@ -8,6 +8,8 @@
 #include "../Operators/Operator.h"
 #include "../Arithmetic/Add/AddArithmetic.h"
 #include "../Operators/Add/AddOperator.h"
+#include "../Arithmetic/Subtract/SubArithmetic.h"
+#include "../Operators/Subtract/SubOperator.h"
 
 class GUI
 {
@@ -18,6 +20,9 @@ private:
 
     AddArithmetic addArithmetic;
     AddOperator addOperator;
+
+    SubArithmetic subArithmetic;
+    SubOperator subOperator;
 
     // ! Private constructor for GUI
     GUI();
