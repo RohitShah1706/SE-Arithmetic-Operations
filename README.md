@@ -22,12 +22,20 @@
 
 
 ## Testing:
-1. Install CMake: https://cmake.org/download/
-2. Possible error faced: https://stackoverflow.com/questions/45150172/cmake-error-cmake-was-unable-to-find-a-build-program-corresponding-to-mingw-ma 
-3. Install google test on windows: https://www.youtube.com/watch?v=3zUqJEilhnM
-4. Install make on windows: https://leangaurav.medium.com/how-to-setup-install-gnu-make-on-windows-324480f1da69
-
-Command:
+1. Install `gcovr` from pypi for code coverage:
 ```bash
-    cmake -G "MinGW Makefiles" -S . -B build
+    pip install gcovr
 ```
+
+2. Run the test script:
+- For Linux: 
+```bash
+    chmod +x run-tests.sh
+    ./run-tests.sh
+```
+- For Windows:  
+```bash
+    ./run-tests.ps1
+```
+
+3. To view the code coverage report, open `coverage/index.html` in your browser.

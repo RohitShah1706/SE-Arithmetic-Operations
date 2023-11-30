@@ -2,3 +2,8 @@
 *.out
 *.vscode
 build
+bin
+*.gcda
+*.gcno
+*.gcov
+coverage
