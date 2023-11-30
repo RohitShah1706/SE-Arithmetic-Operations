@@ -3,6 +3,7 @@
 GUI::GUI()
 {
     addOperator.setArithmetic(&addArithmetic);
+    subOperator.setArithmetic(&subArithmetic);
 }
 
 GUI *GUI::instance = NULL;
@@ -22,6 +23,10 @@ Operator *GUI::getOperator(string op)
     if (strcmp(op.c_str(), "+") == 0)
     {
         return &addOperator;
+    }
+    else if (strcmp(op.c_str(), "-") == 0)
+    {
+        return &subOperator;
     }
     return NULL;
 }
