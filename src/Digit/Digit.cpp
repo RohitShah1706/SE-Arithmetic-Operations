@@ -28,10 +28,11 @@ Digit::Digit(string number, int base)
     }
 }
 
-void Digit::display()
+string Digit::display()
 {
     int i = 0;
     int precision = PRECISION;
+    string s = "";
     for (auto x : *this)
     {
         if (precision == 0)
@@ -42,13 +43,13 @@ void Digit::display()
             precision--;
         if (i == this->size() - this->decimalPoint)
         {
-            cout << ".";
+            s += ".";
             precision--;
         }
-        cout << x;
+        s += to_string(x);
         i++;
     }
-    cout << endl;
+    return s;
 }
 
 void Digit::padWithZeroes(int count)
@@ -61,6 +62,8 @@ void Digit::padWithZeroes(int count)
     }
     this->setDecimalPoint(decimalPoint);
 }
+
+// ! operator overload methods
 
 bool Digit::operator==(const Digit& other) const {
     if (base != other.base) return false;
