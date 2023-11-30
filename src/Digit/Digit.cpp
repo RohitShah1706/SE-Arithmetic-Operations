@@ -16,6 +16,11 @@ Digit::Digit(string number, int base)
     this->isFloat = false;
     this->isNeg = false;
     this->decimalPoint = 0;
+    if (number[0] == '-')
+    {
+        this->isNeg = true;
+        number = number.substr(1);
+    }
     for (int i = 0; i < number.length(); i++)
     {
         if (number[i] == '.')
