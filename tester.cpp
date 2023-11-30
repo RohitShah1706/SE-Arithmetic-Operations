@@ -150,7 +150,7 @@ int main()
     tester.addTest("Test 14", "-", Digit("1101", 2), Digit("101", 2), Digit("1000", 2));
     tester.addTest("Test 15", "-", Digit("101", 2), Digit("1101", 2), Digit("-1000", 2));
     tester.addTest("Test 16", "-", Digit("101.101", 2), Digit("1101.1101", 2), Digit("-1000.0001", 2));
-    tester.addTest("Test 17", "-", Digit("1101.1101", 2), Digit("101.101", 2), Digit("1000.0001", 2));
+    tester.addTest("Test 17", "-", Digit("1101.1111", 2), Digit("101.111", 2), Digit("1000.0001", 2));
 
     
 
