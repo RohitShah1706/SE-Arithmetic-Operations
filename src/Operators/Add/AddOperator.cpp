@@ -10,6 +10,7 @@ Digit AddOperator::operate(Digit &d1, Digit &d2)
 
     Digit c = this->arithmetic->apply(d1, d2);
     c.setDecimalPoint(maxDecimalPoint);
+    c.setBase(d1.getBase());
 
     return c;
 }

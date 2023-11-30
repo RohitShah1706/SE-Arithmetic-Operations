@@ -7,3 +7,5 @@ bin
 *.gcno
 *.gcov
 coverage
+.history
+dev-env
