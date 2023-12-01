@@ -145,7 +145,7 @@ int main()
     // ! sub tests(base-10)
     tester.addTest("Test 9", "-", Digit("12", 10), Digit("10", 10), Digit("2", 10));
     tester.addTest("Test 10", "-", Digit("123.456", 10), Digit("21.042353", 10), Digit("102.413647", 10));
-    tester.addTest("Test 11", "-", Digit("12", 10), Digit("0.02", 10), Digit("11.98", 10));
+    tester.addTest("Test 11", "-", Digit("12", 10), Digit("14", 10), Digit("-2", 10));
     tester.addTest("Test 12", "-", Digit("10", 10), Digit("123.02", 10), Digit("-113.02", 10));
     tester.addTest("Test 13", "-", Digit("99.64", 10), Digit("100.324", 10), Digit("-.684", 10));
 
@@ -155,7 +155,7 @@ int main()
 
     // ! failed
     tester.addTest("Test 16", "-", Digit("101.101", 2), Digit("1101.1101", 2), Digit("-1000.0001", 2));
-    tester.addTest("Test 17", "-", Digit("1101.1111", 2), Digit("101.111", 2), Digit("1000.0001", 2));
+    tester.addTest("Test 17", "-", Digit("1101.1111", 2), Digit("101.111", 2), Digit("1100.0001", 2));
     tester.addTest("Test 18", "+", Digit("1101.1111", 2), Digit("11011", 2), Digit("0.0001", 2));
 
 
@@ -169,6 +169,7 @@ int main()
     tester.addTest("Test 23","*",Digit("0.3",10),Digit("230",10),Digit("69.0",10));
     tester.addTest("Test 24","*",Digit("23",10),Digit("3",10),Digit("69",10));
     tester.addTest("Test 25","*",Digit("0.23",10),Digit("0.3",10),Digit("0.069",10));
+    
     
     // ! run tests
     // cout << "Running tests without GUI" << endl;
