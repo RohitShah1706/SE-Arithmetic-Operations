@@ -160,15 +160,15 @@ int main()
 
 
     // ! mult test()
-    tester.addTest("Test 18","*",Digit("23",10), Digit("3",10), Digit("69",10));
-    tester.addTest("Test 18","*",Digit("2.3",10), Digit("3",10), Digit("6.9",10));
-    tester.addTest("Test 18","*",Digit("2.3",10), Digit("300",10), Digit("690.0",10));
-    tester.addTest("Test 18","*",Digit("2.3",10), Digit("30",10), Digit("69.0",10));
+    tester.addTest("Test 19","*",Digit("23",10), Digit("3",10), Digit("69",10));
+    tester.addTest("Test 20","*",Digit("2.3",10), Digit("3",10), Digit("6.9",10));
+    tester.addTest("Test 21","*",Digit("2.3",10), Digit("300",10), Digit("690.0",10));
+    tester.addTest("Test 22","*",Digit("2.3",10), Digit("30",10), Digit("69.0",10));
 
     // ! mult tests
-    tester.addTest("Test 8","*",Digit("0.3",10),Digit("230",10),Digit("69.0",10));
-    tester.addTest("Test 7","*",Digit("23",10),Digit("3",10),Digit("69",10));
-    tester.addTest("Test 9","*",Digit("0.23",10),Digit("0.3",10),Digit("0.069",10));
+    tester.addTest("Test 23","*",Digit("0.3",10),Digit("230",10),Digit("69.0",10));
+    tester.addTest("Test 24","*",Digit("23",10),Digit("3",10),Digit("69",10));
+    tester.addTest("Test 25","*",Digit("0.23",10),Digit("0.3",10),Digit("0.069",10));
     
     // ! run tests
     // cout << "Running tests without GUI" << endl;
