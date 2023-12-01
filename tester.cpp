@@ -166,6 +166,18 @@ int main()
 
     // ! run tests
 
+    // //test coverage with minimum test case
+    // tester.addTest("Test 1", "+", 10, "923.456", "91.042353", "1014.49835");
+    // tester.addTest("Test 2", "-", 10, "100.02", "123.01", "-22.99");
+    // tester.addTest("Test 3", "*", 10, "0.3", "230", "69.0");
+    // tester.addTest("Test 4", "*", 10, "0.23", "0.3", "0.069");
+    // tester.addTest("Test 5", "%", 10, "0.3", "230", "ERROR:Invalid operator");
+    // tester.addTest("Test 6", "+", 10, "0.2.3", "0.3", "ERROR:Invalid number");
+    // tester.addTest("Test 7", "+", 10, "$", "0.2", "ERROR:Invalid number");
+    // tester.addTest("Test 8", "+", -2, "0.2", "0.2", "ERROR:Invalid base");
+    // // test failed
+    // tester.addTest("Test 9", "-", 10, "11.1", "111.02", "-98.92");
+
     cout << "Running tests with GUI" << endl;
     tester.runTestsWithGUI();
     cout << endl;
