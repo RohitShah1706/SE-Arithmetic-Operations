@@ -71,4 +71,61 @@ void Digit::padWithZeroes(int count)
         decimalPoint++;
     }
     this->setDecimalPoint(decimalPoint);
+<<<<<<< HEAD
 }
+=======
+}
+
+// ! operator overload methods
+
+bool Digit::operator==(const Digit& other) const {
+    if (base != other.base) return false;
+    if (decimalPoint != other.decimalPoint) return false;
+    if (size() != other.size()) return false;
+    for (size_t i = 0; i < size(); i++) {
+        if ((*this)[i] != other[i]) return false;
+    }
+    return true;
+}
+
+bool Digit::operator<(const Digit &other) const
+{
+    if (base != other.base)
+        return base < other.base;
+
+    if (decimalPoint != other.decimalPoint)
+        return decimalPoint < other.decimalPoint;
+
+    size_t minSize = min(size(), other.size());
+
+    for (size_t i = 0; i < minSize; ++i)
+    {
+        if ((*this)[i] != other[i])
+            return (*this)[i] < other[i];
+    }
+
+    return size() < other.size();
+}
+
+Digit Digit::subDigit(int start, int length) {
+    Digit d = Digit("",this->base);
+    d.setDecimalPoint(this->getDecimalPoint());
+    int i =0;
+    for(auto x: *this) {
+        if(i>=start && i < start+length) d.push_back(x);
+
+        i++;
+    }
+    return d;}
+
+void Digit::padZeroesFront(int n) {
+    Digit d = Digit("",this->getBase());
+    for (int i=0;i<n;i++) {
+        d.push_back(0);
+    }
+    for(auto x: *this) {
+        d.push_back(x);
+    }
+    *this = d;
+}
+>>>>>>> 0830f79bb69994f584e31afd388e2c21def1f599

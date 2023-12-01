@@ -6,6 +6,7 @@
 class SubOperator : public Operator
 {
 public:
+
     SubOperator() : Operator() {};
 
     Digit operate(Digit &d1, Digit &d2);

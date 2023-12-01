@@ -1,9 +1,9 @@
 #!/bin/bash
 
-digitPath="path_to_digit_files"
-arithmeticPath="path_to_arithmetic_files"
-operatorsPath="path_to_operators_files"
-guiPath="path_to_gui_files"
+digitPath="./src/Digit/"
+arithmeticPath="./src/Arithmetic/"
+operatorsPath="./src/Operators"
+guiPath="./src/GUI/"
 
 digitFiles=$(find $digitPath -name "*.cpp")
 arithmeticFiles=$(find $arithmeticPath -name "*.cpp")
