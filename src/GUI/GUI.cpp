@@ -9,7 +9,20 @@ GUI::GUI()
 
 bool GUI::isValidNumber(const string &num)
 {
-    return all_of(num.begin(), num.end(), [](char c) { return isdigit(c) || c == '.'; });
+    int f=0;
+    for(auto i:num)
+    {
+        if(isdigit(i))
+            continue;
+        else if(i=='.')
+            f++;
+        else
+            return false;
+    }
+    if(f<=1)
+        return true;
+    else
+        return false;
 }
 
 bool GUI::isValidOperator(const string &op)
@@ -73,11 +86,11 @@ void GUI::run()
 
         // ! Handling exception cases
 
-        if(!GUI::isValidOperator(op))
+        if(!gui->isValidOperator(op))
             cout<<"ERROR:Invalid operator"<<endl;
-        else if(!GUI::isValidNumber(s1) || !GUI::isValidNumber(s2))
+        else if(!gui->isValidNumber(s1) || !gui->isValidNumber(s2))
             cout<<"ERROR:Invalid number"<<endl;
-        else if(!GUI::isValidBase(base))
+        else if(!gui->isValidBase(base))
             cout<<"ERROR:Invalid base"<<endl;
         else
         {
@@ -85,10 +98,6 @@ void GUI::run()
             Digit result = myOperator->operate(gui->digit1, gui->digit2);
             cout << result.display() << endl;
         }
-
-        Operator *myOperator = gui->getOperator(op);
-        Digit result = myOperator->operate(gui->digit1, gui->digit2);
-        cout << result.display() << endl;
     }
 
     cout.flush();
