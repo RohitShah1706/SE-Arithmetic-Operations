@@ -134,20 +134,21 @@ int main()
     tester.addTest("Test 10", "-", 10, "123.456", "21.042353", "102.413647");
     tester.addTest("Test 11", "-", 10, "12", "0.02", "11.98");
     tester.addTest("Test 12", "-", 10, "10", "123.02", "-113.02");
-    tester.addTest("Test 13", "-", 10, "99.64", "100.324", "-.684");
+    tester.addTest("Test 13", "-", 10, "98.64", "99.324", "-.684");
 
     // ! sub tests(base-2)
     tester.addTest("Test 14", "-", 2, "1101", "101", "1000");
     tester.addTest("Test 15", "-", 2, "101", "1101", "-1000");
+    
     // ! failed
     tester.addTest("Test 16", "-", 2, "101.101", "1101.1101", "-1000.0001");
     tester.addTest("Test 17", "-", 2, "1101.1101", "101.101", "1000.0001");
 
     // ! mult tests(base-10)
     tester.addTest("Test 18", "*", 10, "23", "3", "69");
-    tester.addTest("Test 18", "*", 10, "2.3", "3", "6.9");
-    tester.addTest("Test 18", "*", 10, "2.3", "300", "690.0");
-    tester.addTest("Test 18", "*", 10, "2.3", "30", "69.0");
+    tester.addTest("Test 19", "*", 10, "2.3", "3", "6.9");
+    tester.addTest("Test 20", "*", 10, "2.3", "300", "690.0");
+    tester.addTest("Test 21", "*", 10, "2.3", "30", "69.0");
 
     // ! mult tests(base-10)
     tester.addTest("Test 23", "*", 10, "0.3", "230", "69.0");

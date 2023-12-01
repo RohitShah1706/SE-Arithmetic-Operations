@@ -6,6 +6,5 @@ bin
 *.gcda
 *.gcno
 *.gcov
-coverage
 .history
 dev-env
