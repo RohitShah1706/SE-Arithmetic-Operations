@@ -55,10 +55,9 @@ Operator *GUI::getOperator(string op)
     {
         return &subOperator;
     }
-    else if (strcmp(op.c_str(), "*") == 0) {
+    else {
         return &multOperator;
     }
-    return NULL;
 }
 
 void GUI::run()
