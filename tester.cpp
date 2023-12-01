@@ -151,9 +151,12 @@ int main()
     // ! sub tests(base-2)
     tester.addTest("Test 14", "-", Digit("1101", 2), Digit("101", 2), Digit("1000", 2));
     tester.addTest("Test 15", "-", Digit("101", 2), Digit("1101", 2), Digit("-1000", 2));
+
     // ! failed
     tester.addTest("Test 16", "-", Digit("101.101", 2), Digit("1101.1101", 2), Digit("-1000.0001", 2));
     tester.addTest("Test 17", "-", Digit("1101.1111", 2), Digit("101.111", 2), Digit("1000.0001", 2));
+    tester.addTest("Test 18", "+", Digit("1101.1111", 2), Digit("11011", 2), Digit("0.0001", 2));
+
 
     // ! run tests
     // cout << "Running tests without GUI" << endl;

@@ -7,7 +7,7 @@
 #include <string>
 using namespace std;
 
-#define PRECISION 100
+#define PRECISION 5
 
 class Digit: public std::vector<int> 
 {
