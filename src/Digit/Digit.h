@@ -27,8 +27,6 @@ public:
     void padZeroesFront(int n);
     Digit subDigit(int start,int length);
     
-
-
     // ! getters & setters
     int getBase() { return this->base; }
     bool getIsFloat() { return this->isFloat; }
