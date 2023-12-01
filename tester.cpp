@@ -6,34 +6,9 @@
 class DigitTester
 {
 public:
-    void addTest(const string &name, const string &op, const Digit &d1, const Digit &d2, const Digit &expected)
+    void addTest(const string &name, const string &op, int base, const string &d1, const string &d2, const string &expected)
     {
-        tests.push_back({name, op, d1, d2, expected});
-    }
-    
-
-    void runTestsWithoutGUI()
-    {
-        GUI *gui = GUI::getInstance();
-        int passed = 0;
-        for (const auto &test : tests)
-        {
-            Digit d1 = test.d1;
-            Digit d2 = test.d2;
-            Digit expected = test.expected;
-            Digit result = gui->getOperator(test.op)->operate(d1, d2);
-            if (compareDigits(expected, result))
-            {
-                cout << "Test passed: " << test.name << endl;
-                passed++;
-            }
-            else
-            {
-                cout << "Test failed: " << test.name << endl;
-                cout << result.display() << " " << expected.display() << endl;
-            }
-        }
-        cout << "Total tests: " << tests.size() << ", Passed: " << passed << ", Failed: " << tests.size() - passed << endl;
+        tests.push_back({name, op, base, d1, d2, expected});
     }
 
     void runTestsWithGUI()
@@ -42,18 +17,22 @@ public:
         std::stringstream ss;
         for (auto test : tests)
         {
-            string s1 = test.d1.display();
-            string s2 = test.d2.display();
+            string s1 = test.d1;
+            string s2 = test.d2;
 
             ss << s1 << "\n"
                << s2 << "\n"
                << test.op << "\n"
-               << test.d1.getBase() << "\n";
+               << test.base << "\n";
         }
-        ss << "exit" << "\n"
-           << "" << "\n"
-           << "" << "\n"
-           << "" << "\n";
+        ss << "exit"
+           << "\n"
+           << ""
+           << "\n"
+           << ""
+           << "\n"
+           << ""
+           << "\n";
 
         // ! Redirect cin to read from the stringstream
         std::streambuf *origCin = std::cin.rdbuf(ss.rdbuf());
@@ -90,7 +69,7 @@ public:
         int passed = 0;
         for (int i = 0; i < results.size(); i++)
         {
-            if (results[i] == tests[i].expected.display())
+            if (results[i] == tests[i].expected)
             {
                 passed++;
                 cout << "Test passed: " << tests[i].name << endl;
@@ -98,7 +77,7 @@ public:
             else
             {
                 cout << "Test failed: " << tests[i].name << endl;
-                cout<<results[i]<<" "<< tests[i].expected.display()<<endl;
+                cout << results[i] << " " << tests[i].expected << endl;
             }
         }
         cout << "Total tests: " << results.size() << ", Passed: " << passed << ", Failed: " << results.size() - passed << endl;
@@ -109,20 +88,26 @@ private:
     {
         string name;
         string op;
-        Digit d1;
-        Digit d2;
-        Digit expected;
+        int base;
+        string d1;
+        string d2;
+        string expected;
     };
 
     vector<TestCase> tests;
 
     bool compareDigits(Digit &d1, Digit &d2)
     {
-        if (d1.getBase() != d2.getBase()) return false;
-        if (d1.getDecimalPoint() != d2.getDecimalPoint()) return false;
-        if (d1.size() != d2.size()) return false;
-        for (size_t i = 0; i < d2.size(); i++) {
-            if (d1[i] != d2[i]) return false;
+        if (d1.getBase() != d2.getBase())
+            return false;
+        if (d1.getDecimalPoint() != d2.getDecimalPoint())
+            return false;
+        if (d1.size() != d2.size())
+            return false;
+        for (size_t i = 0; i < d2.size(); i++)
+        {
+            if (d1[i] != d2[i])
+                return false;
         }
         return true;
     }
@@ -133,55 +118,52 @@ int main()
     DigitTester tester;
 
     // ! add tests(base-10)
-    tester.addTest("Test 1", "+", Digit("12", 10), Digit("10", 10), Digit("22", 10));
-    tester.addTest("Test 2", "+", Digit("12.22", 10), Digit("10", 10), Digit("22.22", 10));
-    tester.addTest("Test 3", "+", Digit("123.456", 10), Digit("21.042353", 10), Digit("144.498353", 10));
-    tester.addTest("Test 4", "+", Digit("1.232", 10), Digit("12.22", 10), Digit("13.452", 10));
+    tester.addTest("Test 1", "+", 10, "12", "10", "22");
+    tester.addTest("Test 2", "+", 10, "12.22", "10", "22.22");
+    tester.addTest("Test 3", "+", 10, "123.456", "21.042353", "144.498353");
+    tester.addTest("Test 4", "+", 10, "1.232", "12.22", "13.452");
 
     // ! add tests(base-2)
-    tester.addTest("Test 5", "+", Digit("1101", 2), Digit("101", 2), Digit("10010", 2));
-    tester.addTest("Test 6", "+", Digit("101.001", 2), Digit("1101", 2), Digit("10010.001", 2));
-    tester.addTest("Test 7", "+", Digit("0.101", 2), Digit("0.1101", 2), Digit("1.0111", 2));
-    tester.addTest("Test 8", "+", Digit("0.001", 2), Digit("0.1101", 2), Digit("0.1111", 2));
+    tester.addTest("Test 5", "+", 2, "1101", "101", "10010");
+    tester.addTest("Test 6", "+", 2, "101.001", "1101", "10010.001");
+    tester.addTest("Test 7", "+", 2, "0.101", "0.1101", "1.0111");
+    tester.addTest("Test 8", "+", 2, "0.001", "0.1101", "0.1111");
 
     // ! sub tests(base-10)
-    tester.addTest("Test 9", "-", Digit("12", 10), Digit("10", 10), Digit("2", 10));
-    tester.addTest("Test 10", "-", Digit("123.456", 10), Digit("21.042353", 10), Digit("102.413647", 10));
-    tester.addTest("Test 11", "-", Digit("12", 10), Digit("0.02", 10), Digit("11.98", 10));
-    tester.addTest("Test 12", "-", Digit("10", 10), Digit("123.02", 10), Digit("-113.02", 10));
-    tester.addTest("Test 13", "-", Digit("99.64", 10), Digit("100.324", 10), Digit("-.684", 10));
+    tester.addTest("Test 9", "-", 10, "12", "10", "2");
+    tester.addTest("Test 10", "-", 10, "123.456", "21.042353", "102.413647");
+    tester.addTest("Test 11", "-", 10, "12", "0.02", "11.98");
+    tester.addTest("Test 12", "-", 10, "10", "123.02", "-113.02");
+    tester.addTest("Test 13", "-", 10, "99.64", "100.324", "-.684");
 
     // ! sub tests(base-2)
-    tester.addTest("Test 14", "-", Digit("1101", 2), Digit("101", 2), Digit("1000", 2));
-    tester.addTest("Test 15", "-", Digit("101", 2), Digit("1101", 2), Digit("-1000", 2));
+    tester.addTest("Test 14", "-", 2, "1101", "101", "1000");
+    tester.addTest("Test 15", "-", 2, "101", "1101", "-1000");
     // ! failed
-    tester.addTest("Test 16", "-", Digit("101.101", 2), Digit("1101.1101", 2), Digit("-1000.0001", 2));
-    tester.addTest("Test 17", "-", Digit("1101.1101", 2), Digit("101.101", 2), Digit("1000.0001", 2));
+    tester.addTest("Test 16", "-", 2, "101.101", "1101.1101", "-1000.0001");
+    tester.addTest("Test 17", "-", 2, "1101.1101", "101.101", "1000.0001");
 
-    // ! mult test()
-    tester.addTest("Test 18","*",Digit("23",10), Digit("3",10), Digit("69",10));
-    tester.addTest("Test 18","*",Digit("2.3",10), Digit("3",10), Digit("6.9",10));
-    tester.addTest("Test 18","*",Digit("2.3",10), Digit("300",10), Digit("690.0",10));
-    tester.addTest("Test 18","*",Digit("2.3",10), Digit("30",10), Digit("69.0",10));
+    // ! mult tests(base-10)
+    tester.addTest("Test 18", "*", 10, "23", "3", "69");
+    tester.addTest("Test 18", "*", 10, "2.3", "3", "6.9");
+    tester.addTest("Test 18", "*", 10, "2.3", "300", "690.0");
+    tester.addTest("Test 18", "*", 10, "2.3", "30", "69.0");
 
-    // ! mult tests
-    tester.addTest("Test 23","*",Digit("0.3",10),Digit("230",10),Digit("69.0",10));
-    tester.addTest("Test 24","*",Digit("23",10),Digit("3",10),Digit("69",10));
-    tester.addTest("Test 25","*",Digit("0.23",10),Digit("0.3",10),Digit("0.069",10));
+    // ! mult tests(base-10)
+    tester.addTest("Test 23", "*", 10, "0.3", "230", "69.0");
+    tester.addTest("Test 24", "*", 10, "23", "3", "69");
+    tester.addTest("Test 25", "*", 10, "0.23", "0.3", "0.069");
 
     // ! exception tests
-    tester.addTest("Test 26","%",Digit("0.3",10),Digit("230",10),"ERROR:Invalid operator");
-    tester.addTest("Test 27","/",Digit("23",10),Digit("3",10),"ERROR:Invalid operator");
-    tester.addTest("Test 28","+",Digit("0.2.3",10),Digit("0.3",10),"ERROR:Invalid number");
-    tester.addTest("Test 29","*",Digit("0.3",10),Digit("0.3.2",10),"ERROR:Invalid number");
-    tester.addTest("Test 30","+",Digit("$",10),Digit("0.2",10),"ERROR:Invalid number");
-    tester.addTest("Test 31","*",Digit("333",1),Digit("1.3",1),"ERROR:Invalid base");    
-    tester.addTest("Test 32","-",Digit("946",0),Digit("32",0),"ERROR:Invalid base");
+    tester.addTest("Test 26", "%", 10, "0.3", "230", "ERROR:Invalid operator");
+    tester.addTest("Test 27", "/", 10, "23", "3", "ERROR:Invalid operator");
+    tester.addTest("Test 28", "+", 10, "0.2.3", "0.3", "ERROR:Invalid number");
+    tester.addTest("Test 29", "*", 10, "0.3", "0.3.2", "ERROR:Invalid number");
+    tester.addTest("Test 30", "+", 10, "$", "0.2", "ERROR:Invalid number");
+    tester.addTest("Test 31", "*", 1, "0.3", "0.32", "ERROR:Invalid base");
+    tester.addTest("Test 32", "+", -2, "0.2", "0.2", "ERROR:Invalid base");
 
     // ! run tests
-    // cout << "Running tests without GUI" << endl;
-    // tester.runTestsWithoutGUI();
-    // cout << endl;
 
     cout << "Running tests with GUI" << endl;
     tester.runTestsWithGUI();
