@@ -7,8 +7,34 @@ GUI::GUI()
     multOperator.setArithmetic(&multArithmetic);
 }
 
-GUI *GUI::instance = NULL;
+bool GUI::isValidNumber(const string &num)
+{
+    int f=0;
+    for(auto i:num)
+    {
+        if(isdigit(i))
+            continue;
+        else if(i=='.')
+            f++;
+        else
+            return false;
+    }
+    if(f<=1)
+        return true;
+    else
+        return false;
+}
 
+bool GUI::isValidOperator(const string &op)
+{
+    return op == "+" || op == "-" || op == "*";
+}
+
+bool GUI::isValidBase(int base)
+{
+    return base>1;
+}
+GUI *GUI::instance = NULL;
 // ! Static method to get the singleton instance
 GUI *GUI::getInstance()
 {
@@ -51,15 +77,27 @@ void GUI::run()
         cin >> s2;
         // cout << "Enter operator: ";
         cin >> op;
+        // cout << "Enter base: ";
         cin >> base;
 
         GUI *gui = GUI::getInstance();
         gui->digit1 = Digit(s1, base);
         gui->digit2 = Digit(s2, base);
 
-        Operator *myOperator = gui->getOperator(op);
-        Digit result = myOperator->operate(gui->digit1, gui->digit2);
-        cout << result.display() << endl;
+        // ! Handling exception cases
+
+        if(!gui->isValidOperator(op))
+            cout<<"ERROR:Invalid operator"<<endl;
+        else if(!gui->isValidNumber(s1) || !gui->isValidNumber(s2))
+            cout<<"ERROR:Invalid number"<<endl;
+        else if(!gui->isValidBase(base))
+            cout<<"ERROR:Invalid base"<<endl;
+        else
+        {
+            Operator *myOperator = gui->getOperator(op);
+            Digit result = myOperator->operate(gui->digit1, gui->digit2);
+            cout << result.display() << endl;
+        }
     }
 
     cout.flush();

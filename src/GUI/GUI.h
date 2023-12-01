@@ -36,6 +36,10 @@ public:
     // ! Static method to get the singleton instance
     static GUI *getInstance();
 
+    bool isValidNumber(const string &num);
+    bool isValidOperator(const string &num);
+    bool isValidBase(int base);
+
     Operator *getOperator(string op);
 
     static void run();
