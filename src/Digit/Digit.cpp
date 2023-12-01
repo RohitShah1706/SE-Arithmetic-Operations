@@ -71,6 +71,9 @@ void Digit::padWithZeroes(int count)
         decimalPoint++;
     }
     this->setDecimalPoint(decimalPoint);
+<<<<<<< HEAD
+}
+=======
 }
 
 // ! operator overload methods
@@ -125,3 +128,4 @@ void Digit::padZeroesFront(int n) {
     }
     *this = d;
 }
+>>>>>>> 0830f79bb69994f584e31afd388e2c21def1f599
