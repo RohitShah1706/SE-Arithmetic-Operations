@@ -169,6 +169,18 @@ int main()
     tester.addTest("Test 23","*",Digit("0.3",10),Digit("230",10),Digit("69.0",10));
     tester.addTest("Test 24","*",Digit("23",10),Digit("3",10),Digit("69",10));
     tester.addTest("Test 25","*",Digit("0.23",10),Digit("0.3",10),Digit("0.069",10));
+
+    // ! exception tests
+    // tester.addTest("Test 26","%",Digit("0.3",10),Digit("230",10),"ERROR:Invalid operator");
+    // tester.addTest("Test 27","/",Digit("23",10),Digit("3",10),"ERROR:Invalid operator");
+    // tester.addTest("Test 28","+",Digit("0.2.3",10),Digit("0.3",10),"ERROR:Invalid number");
+    // tester.addTest("Test 29","*",Digit("0.3",10),Digit("0.3.2",10),"ERROR:Invalid number");
+    // tester.addTest("Test 30","+",Digit("$",10),Digit("0.2",10),"ERROR:Invalid number");
+    // tester.addTest("Test 31","*",Digit("333",1),Digit("1.3",1),"ERROR:Invalid base");    
+    // tester.addTest("Test 32","-",Digit("946",0),Digit("32",0),"ERROR:Invalid base");
+
+
+
     
     
     // ! run tests
