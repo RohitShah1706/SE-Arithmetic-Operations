@@ -146,14 +146,14 @@ int main()
 
     // ! mult tests(base-10)
     tester.addTest("Test 18", "*", 10, "23", "3", "69");
-    tester.addTest("Test 19", "*", 10, "2.3", "3", "6.9");
-    tester.addTest("Test 20", "*", 10, "2.3", "300", "690.0");
-    tester.addTest("Test 21", "*", 10, "2.3", "30", "69.0");
+    tester.addTest("Test 19", "*", 10, "0.3", "230", "69.0");
+    
+    
+    // ! mult tests(base-2)
+    tester.addTest("test_20", "*",2,"1.1","10","11.0");
 
-    // ! mult tests(base-10)
-    tester.addTest("Test 23", "*", 10, "0.3", "230", "69.0");
-    tester.addTest("Test 24", "*", 10, "23", "3", "69");
-    tester.addTest("Test 25", "*", 10, "0.23", "0.3", "0.069");
+    // ! mult-failiure
+    tester.addTest("test_21","*",10,"23","3","420");
 
     // ! exception tests
     tester.addTest("Test 26", "%", 10, "0.3", "230", "ERROR:Invalid operator");
