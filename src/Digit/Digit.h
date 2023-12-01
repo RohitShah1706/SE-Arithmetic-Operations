@@ -21,7 +21,13 @@ public:
     Digit();
     Digit(string number, int base);
     void padWithZeroes(int count);
+
     string display();
+
+    void padZeroesFront(int n);
+    Digit subDigit(int start,int length);
+    
+
 
     // ! getters & setters
     int getBase() { return this->base; }

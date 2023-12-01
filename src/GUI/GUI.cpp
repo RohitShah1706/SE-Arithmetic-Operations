@@ -4,6 +4,7 @@ GUI::GUI()
 {
     addOperator.setArithmetic(&addArithmetic);
     subOperator.setArithmetic(&subArithmetic);
+    multOperator.setArithmetic(&multArithmetic);
 }
 
 bool GUI::isValidNumber(const string &num)
@@ -40,6 +41,9 @@ Operator *GUI::getOperator(string op)
     else if (strcmp(op.c_str(), "-") == 0)
     {
         return &subOperator;
+    }
+    else if (strcmp(op.c_str(), "*") == 0) {
+        return &multOperator;
     }
     return NULL;
 }
